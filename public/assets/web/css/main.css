@@ -1,0 +1,103 @@
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+#wrapper {
+  min-width: 1280px;
+}
+
+.sidebar-brand-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", sans-serif;
+}
+
+.navbar-nav .version {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+}
+
+.container-fluid h1, .container-fluid h3 {
+  font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", sans-serif;
+}
+
+.card-header h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", sans-serif;
+}
+
+.card-body {
+  padding: 0.8em 1em;
+}
+
+.card-list {
+  font-size: 13px;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0.2em;
+}
+
+.pagination, .dataTables_info, .dataTables_length, .dataTables_filter {
+  font-size: 13px;
+}
+
+.modal-dialog .modal-footer {
+  justify-content: center;
+}
+.modal-dialog .modal-footer .btn {
+  font-size: 13px;
+}
+
+.table {
+  font-size: 13px;
+}
+
+.table-hover tbody .btn {
+  white-space: nowrap;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(67, 105, 215, 0.05);
+}
+
+.table-hover tbody tr:hover {
+  color: #858796;
+  background-color: rgba(67, 105, 215, 0.08);
+}
+
+.starCheck-group {
+  position: relative;
+  cursor: pointer;
+}
+.starCheck-group label {
+  color: #d1d3e2;
+}
+.starCheck-group .starCheck-input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.starCheck-group .starCheck-input[type="checkbox"]:checked ~ label {
+  color: #f6c23e;
+}
+
+.form input, .form select {
+  font-size: 12px;
+}
+.form input::-webkit-input-placeholder {
+  opacity: 0.6;
+}
+.form input:-ms-input-placeholder {
+  opacity: 0.6;
+}
+.form input::-ms-input-placeholder {
+  opacity: 0.6;
+}
+.form input::placeholder {
+  opacity: 0.6;
+}
+
+.card-seach {
+  background-color: #fff;
+  border: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,22 @@
+#toast-container > div {
+    opacity: 1 !important;
+}
+.card .table-top-right {
+	text-align: right;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.card .table-top-left {
+	text-align: left;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.login-title {
+	color: #fff;
+}
+
+.description {
+	font-size: 12px;
+}

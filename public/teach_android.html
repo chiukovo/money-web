@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遊戲下載安裝教學</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/teach.css?v=1.0.0">
+</head>
+
+<body class="teach">
+  <div class="teach_banner">
+    <img src="/img/teach_bg_s.jpg" class="teach_banner_img">
+  </div>
+  <div class="container">
+    <div class="first-dl-center">
+      <h2>Download &amp; Play Now</h2>
+      <ul>
+        <li class="is-android">
+          <a id="url" href="#" target="_blank">
+            <span><b>Android Download</b></span>
+            <span><b>立即下載</b></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="teach_list text-center">
+      <img src="img/teach_android.jpg">
+    </div>
+  </div>
+</body>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script>
+  $(function () {
+    $.ajax({
+      url: '/downloadUrl',
+      success: function (res) {
+        $('#url').attr('href', res.au);
+      }
+    });
+  });
+</script>
+
+</html>

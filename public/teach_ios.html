@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遊戲下載安裝教學</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/teach.css?v=1.0.0">
+</head>
+
+<body class="teach">
+  <div class="teach_banner">
+    <img src="/img/teach_bg_s.jpg" class="teach_banner_img">
+  </div>
+  <div class="container">
+    <!-- <div class="teach_logo"><img src="img/logo.png" ></div> -->
+    <div class="first-dl-center">
+      <!-- <h1><b>天下麻將</b></h1> -->
+      <h2>Download &amp; Play Now</h2>
+      <ul>
+        <li class="is-ios">
+          <a id="url" href="#" target="_blank">
+            <span><b>iOS Download</b></span>
+            <span><b>立即下載</b></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="teach_list text-center">
+      <img src="img/teach_ios.jpg">
+    </div>
+  </div>
+</body>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script>
+  $(function () {
+    $.ajax({
+      url: '/downloadUrl',
+      success: function (res) {
+        $('#url').attr('href', res.iu);
+      }
+    });
+  });
+</script>
+
+</html>
