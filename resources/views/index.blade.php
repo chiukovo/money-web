@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="网赚，手机收入，兼职有哪些方式，人脉，人脉赚钱，轻松网赚，游戏赚钱，在家网赚，网赚一天多400" />
+    <meta name="description" content="网赚，手机收入，兼职有哪些方式，人脉，人脉赚钱，轻松网赚，游戏赚钱，在家网赚，网赚一天多400" />
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
