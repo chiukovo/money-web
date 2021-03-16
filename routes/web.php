@@ -13,16 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'App\Http\Controllers\WebController@index');
-Route::get('/downloadUrl', 'App\Http\Controllers\WebController@downloadUrl');
-Route::get('/logout', 'App\Http\Controllers\WebController@logout');
-Route::post('api/web/user/doLogin', 'App\Http\Controllers\WebController@doLogin');
-Route::post('api/web/user/reg', 'App\Http\Controllers\WebController@reg');
 
 Route::get('admin/login', 'App\Http\Controllers\AdminController@login')->name('adminLogin');
 Route::post('admin/login', 'App\Http\Controllers\AdminController@doLogin');
-
-//for bot
-Route::any('bot/reply', 'App\Http\Controllers\BotController@reply');
 
 //login
 Route::group(['middleware' => ['auth']], function () {
