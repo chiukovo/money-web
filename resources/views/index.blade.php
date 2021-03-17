@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>网赚平台</title>
+    <title>{{ env('APP_NAME') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="网赚,手机收入,兼职有哪些方式,人脉,人脉赚钱,轻松网赚,游戏赚钱,在家网赚,网赚一天多400" />
@@ -61,10 +61,10 @@
                             <div class="agileinfo-dot">
                                 <div class="container">
                                     <div class="agileits-banner-info">
-                                        <h3>2021年最火的网赚平台！</h3>
+                                        <h3>2021年最火的{{ env('APP_NAME') }}！</h3>
                                         <h6>每天挣 $100 很轻松！</h6>
                                         <p>可以轻松获利，这不仅使你具备工具和技能，以使您能挣更多，而且使您感到充实而无忧。
-                                            然而，令您惊讶的是，这其中有许多是交叉的陷阱。这些网赚平台平台毫不费力地推销他们的计划。这些平台非常善于让你相信——你可以在家中舒适的赚取数千美元。</p>
+                                            然而，令您惊讶的是，这其中有许多是交叉的陷阱。这些{{ env('APP_NAME') }}毫不费力地推销他们的计划。这些平台非常善于让你相信——你可以在家中舒适的赚取数千美元。</p>
                                         <div class="w3-button">
                                             <a href="#mail">立即了解</a>
                                         </div>
@@ -78,7 +78,7 @@
                             <div class="agileinfo-dot">
                                 <div class="container">
                                     <div class="agileits-banner-info">
-                                        <h3>在家创业网赚平台简单轻鬆！</h3>
+                                        <h3>在家创业{{ env('APP_NAME') }}简单轻鬆！</h3>
                                         <h6>门槛极低，有个电脑就能做。</h6>
                                         <p>
                                             这些年，玩游戏赚钱被越来越多的人所认可。有的人玩游戏当了成了职业玩家；有些人玩游戏做主播，做的风生水起，赚的盆满钵满；还有的人在开游戏工作室挣钱！这些都是不争的事实！当然，不是任何人都能玩游戏，最后当上职业玩家的。
