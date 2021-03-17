@@ -37,6 +37,17 @@ class WebController extends Controller
         }
 
         //判斷字串長度是否過長
+        if (
+            strlen($name) > 100 ||
+            strlen($vx) > 100 ||
+            strlen($phone) > 100 ||
+            strlen($msg) > 800
+        ) {
+            return response()->json([
+                'status' => 'error',
+                'msg' => '字串长度过长'
+            ]);
+        }
 
         //判斷是否新增太多筆
         $count = DB::table('web_users')->where('ip', $ip)->count();
