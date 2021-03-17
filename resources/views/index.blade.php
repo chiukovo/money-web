@@ -516,7 +516,7 @@
     <footer>
         <div class="container">
             <div class="copyright">
-                <p>© 2021 Free Online. All rights reserved</p>
+                <p>© 2021 网赚 Online. All rights reserved</p>
             </div>
         </div>
     </footer>
