@@ -5,8 +5,9 @@
     <title>网赚平台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="网赚，手机收入，兼职有哪些方式，人脉，人脉赚钱，轻松网赚，游戏赚钱，在家网赚，网赚一天多400" />
-    <meta name="description" content="网赚，手机收入，兼职有哪些方式，人脉，人脉赚钱，轻松网赚，游戏赚钱，在家网赚，网赚一天多400" />
+    <meta name="keywords" content="网赚,手机收入,兼职有哪些方式,人脉,人脉赚钱,轻松网赚,游戏赚钱,在家网赚,网赚一天多400" />
+    <meta name="description" content="兼职有哪些方式,轻松人脉赚钱,怎么在家通过网络挣钱,怎么通过网上赚钱,什么游戏平台可以赚钱,如何用手机赚外快,手机赚钱平台交流群" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -497,12 +498,12 @@
                         <h3>Send us a message</h3>
                     </div>
                     <div class="agileinfo-contact-form-grid">
-                        <form action="#" method="post">
-                            <input type="text" name="name" placeholder="姓名" required="">
-                            <input type="text" name="vx" placeholder="vx" required="">
-                            <input type="text" name="tel" placeholder="电话" required="">
-                            <textarea name="msg" placeholder="讯息" required=""></textarea>
-                            <button class="btn1">送出</button>
+                        <form id="form">
+                            <input type="text" name="name" placeholder="姓名" required>
+                            <input type="text" name="vx" placeholder="vx" required>
+                            <input type="text" name="phone" placeholder="手机号" required>
+                            <textarea name="msg" placeholder="讯息"></textarea>
+                            <button id="submit" class="btn1">送出</button>
                         </form>
                     </div>
                 </div>
@@ -548,6 +549,46 @@
                 easingType: 'easeOutQuart'
             });
 
+            //msg
+            $('#submit').click(function(e) {
+                e.preventDefault();
+
+                const name = $('input[name=name]').val()
+                const vx = $('input[name=vx]').val()
+                const phone = $('input[name=phone]').val()
+
+                if (phone == '' || name == '' || vx == '') {
+                    alert('名称 手机号 vx 不得为空')
+                    return false
+                }
+
+                if (!telephoneCheck(phone)) {
+                    alert('非正确手机格式')
+                    return false
+                }
+
+                const data = $('#form').serialize();
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/',
+                    data: data,
+                    type: 'POST',
+                    success: function(res) {
+                        if (res.status == 'success') {
+                            alert('恭喜您即将改变人生! 专业理财专员立即与您联繫')
+                            location.reload()
+                        } else {
+                            alert(res.msg)
+                        }
+                    }
+                });
+            });
+
+            function telephoneCheck(str) {
+                return isphone = /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(str);
+            }
         });
     </script>
     <!-- //here ends scrolling icon -->

@@ -8,9 +8,6 @@
                 <li class="sidebar-item">
                     <a href="/admin/web/user/list" class="sidebar-link waves-dark"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">前台會員帳號</span></a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="/admin/settings" class="sidebar-link waves-dark"><i class="mdi mdi-settings"></i><span class="hide-menu">系統設定</span></a>
-                </li>
             </ul>
         </nav>
     </div>

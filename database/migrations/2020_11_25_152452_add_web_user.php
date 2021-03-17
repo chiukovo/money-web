@@ -18,6 +18,7 @@ class AddWebUser extends Migration
             $table->string('name', 100);
             $table->string('phone', 100);
             $table->string('vx', 100);
+            $table->integer('status')->default(0)->comment('0: 未聯絡, 1:已連絡, 2:來亂的');
             $table->text('msg')->nullable();
             $table->string('ip')->nullable()->comment('ip');
             $table->timestamps();

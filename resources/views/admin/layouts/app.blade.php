@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="/img/icon.png">
   <title>{{ env('APP_NAME') }}</title>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/assets/fonts/css/font-awesome.min.css">

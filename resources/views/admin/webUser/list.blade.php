@@ -12,28 +12,40 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="text-right m-t-10 m-b-10">
-                <a href="/admin/web/user/create" class="btn btn-info">新增帳號</a>
-            </div>
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">前台會員帳號</h5>
                     <form action="">
                         <div class="form form-row align-items-center m-b-10">
-                            <div class="col-auto text-xs">帳號</div>
+                            <div class="col-auto text-xs">名稱</div>
                             <div class="col-auto">
-                                <label class="text-xs sr-only">帳號</label>
-                                <input name="account" type="text" class="form-control" placeholder="請輸入帳號" value="{{ $account }}">
+                                <label class="text-xs sr-only">名稱</label>
+                                <input name="name" type="text" class="form-control" placeholder="請輸入帳號" value="{{ $name }}">
                             </div>
                             <div class="col-auto text-xs">手機</div>
                             <div class="col-auto">
                                 <label class="text-xs sr-only">手機</label>
                                 <input name="phone"" type=" text" class="form-control" placeholder="請輸入手機" value="{{ $phone }}">
                             </div>
-                            <div class="col-auto text-xs">推廣碼</div>
+                            <div class="col-auto text-xs">vx</div>
                             <div class="col-auto">
-                                <label class="text-xs sr-only">推廣碼</label>
-                                <input name="code"" type=" text" class="form-control" placeholder="請輸入推廣碼" value="{{ $code }}">
+                                <label class="text-xs sr-only">vx</label>
+                                <input name="vx"" type=" text" class="form-control" placeholder="請輸入vx" value="{{ $vx }}">
+                            </div>
+                            <div class="col-auto text-xs">ip</div>
+                            <div class="col-auto">
+                                <label class="text-xs sr-only">ip</label>
+                                <input name="ip"" type=" text" class="form-control" placeholder="請輸入ip" value="{{ $ip }}">
+                            </div>
+                            <div class="col-auto text-xs">狀態</div>
+                            <div class="col-auto">
+                                <label class="text-xs sr-only">狀態</label>
+                                <select name="status" class="custom-select">
+                                    <option value="">全部</option>
+                                    <option value="0" {{ $status == '0' ? 'selected' : '' }}>未聯絡</option>
+                                    <option value="1" {{ $status == '1' ? 'selected' : '' }}>已聯絡</option>
+                                    <option value="2" {{ $status == '2' ? 'selected' : '' }}>來亂的</option>
+                                </select>
                             </div>
                             <div class="col-auto">
                                 <button class="btn btn-info">搜尋</button>
@@ -46,24 +58,34 @@
                             <thead>
                                 <tr>
                                     <th>帳號</th>
-                                    <th>暱稱</th>
                                     <th>手機</th>
-                                    <th>推廣代碼</th>
-                                    <th>真實姓名</th>
-                                    <th>email</th>
+                                    <th>vx</th>
+                                    <th>ip</th>
+                                    <th>訊息</th>
+                                    <th>狀態</th>
                                     <th>註冊日期</th>
+                                    <th>功能</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($webUserData as $data)
                                 <tr>
-                                    <td>{{ $data->account }}</td>
-                                    <td>{{ $data->nickname }}</td>
-                                    <td>{{ $data->phone }}</td>
-                                    <td>{{ $data->code }}</td>
                                     <td>{{ $data->name }}</td>
-                                    <td>{{ $data->email }}</td>
+                                    <td>{{ $data->phone }}</td>
+                                    <td>{{ $data->vx }}</td>
+                                    <td>{{ $data->ip }}</td>
+                                    <td>{{ $data->msg }}</td>
+                                    <td>
+                                        <select class="custom-select" onchange="updateStatus(this, '{{ $data->id }}')">
+                                            <option value="0" {{ $data->status == '0' ? 'selected' : ''}}>未聯絡</option>
+                                            <option value="1" {{ $data->status == '1' ? 'selected' : ''}}>已聯絡</option>
+                                            <option value="2" {{ $data->status == '2' ? 'selected' : ''}}>來亂的</option>
+                                        </select>
+                                    </td>
                                     <td>{{ $data->created_at }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="del('{{ $data->id }}', '{{ $data->name }}')">移除</button>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -84,7 +106,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/admin/user/delete',
+                url: '/admin/web/user/delete',
                 data: {
                     id: id
                 },
@@ -100,6 +122,30 @@
         } else {
             return
         }
+    }
+
+    function updateStatus(obj, id) {
+        const status = obj.value
+
+        if (!parseInt(status) && !parseInt(id)) {
+            alert('not int')
+            return false
+        }
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/admin/web/user/update/status',
+            data: {
+                id: id,
+                status: status
+            },
+            type: 'POST',
+            success: function(res) {
+                console.log(res)
+            }
+        });
     }
 </script>
 @endsection

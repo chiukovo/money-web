@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'App\Http\Controllers\WebController@index');
+Route::post('/', 'App\Http\Controllers\WebController@doSave');
 
 Route::get('admin/login', 'App\Http\Controllers\AdminController@login')->name('adminLogin');
 Route::post('admin/login', 'App\Http\Controllers\AdminController@doLogin');
@@ -32,10 +33,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('admin/web/user/edit', 'App\Http\Controllers\AdminController@webUserEdit')->name('webUserEdit');
     Route::get('admin/web/user/create', 'App\Http\Controllers\AdminController@webUserEdit')->name('webUserCreate');
     Route::post('admin/web/user/doEdit', 'App\Http\Controllers\AdminController@webUserDoEdit');
-
-    //setting
-    Route::get('admin/settings', 'App\Http\Controllers\AdminController@settings');
-    Route::post('admin/settings', 'App\Http\Controllers\AdminController@saveSettings');
+    Route::post('admin/web/user/update/status', 'App\Http\Controllers\AdminController@webUserUpdateStatus');
+    Route::delete('admin/web/user/delete', 'App\Http\Controllers\AdminController@webUserDoDelete');
     
 });
 
