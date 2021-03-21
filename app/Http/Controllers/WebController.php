@@ -29,7 +29,7 @@ class WebController extends Controller
             ]);
         }
 
-        if (!preg_match('/^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/', $phone)) {
+        if (preg_match("/^1[34578]\d{9}$/", $phone)) {
             return response()->json([
                 'status' => 'error',
                 'msg' => '非正确手机格式'

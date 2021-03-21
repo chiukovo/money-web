@@ -562,11 +562,6 @@
                     return false
                 }
 
-                if (!telephoneCheck(phone)) {
-                    alert('非正确手机格式')
-                    return false
-                }
-
                 const data = $('#form').serialize();
                 $.ajax({
                     headers: {
