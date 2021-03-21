@@ -61,7 +61,7 @@ class WebController extends Controller
 
         //TG發訊息
         $sendMsg = '亲 有人来註册囉---o(*^▽^*)o' . '%0A';
-        $sendMsg = '%0A';
+        $sendMsg .= '%0A';
         $sendMsg .= '姓名: ' . $name . '%0A';
         $sendMsg .= 'vx: ' . $vx . '%0A';
         $sendMsg .= '手机号: ' . $phone . '%0A';
