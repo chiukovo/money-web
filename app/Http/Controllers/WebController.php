@@ -14,7 +14,13 @@ class WebController extends Controller
     public function doSave()
     {
         $date = date('Y-m-d H:i:s');
-        $ip = Request::getClientIp();
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+            $ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+        }
+
         $postData = Request::input();
 
         $name = $postData['name'] ?? '';
