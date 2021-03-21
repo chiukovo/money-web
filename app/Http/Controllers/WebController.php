@@ -59,6 +59,19 @@ class WebController extends Controller
             ]);
         }
 
+        //TG發訊息
+        $sendMsg = '亲 有人来註册囉---o(*^▽^*)o' . '%0A';
+        $sendMsg = '%0A';
+        $sendMsg .= '姓名: ' . $name . '%0A';
+        $sendMsg .= 'vx: ' . $vx . '%0A';
+        $sendMsg .= '手机号: ' . $phone . '%0A';
+        $sendMsg .= '讯息: ' . $msg . '%0A';
+        $sendMsg .= '来源ip: ' . $ip;
+
+        $baseUrl = 'https://api.telegram.org/bot' . env('TG_TOKEN') . '/sendMessage?chat_id=' . env('TG_GROUP_ID') . '&text=' . $sendMsg;
+
+        $response = Curl::to($baseUrl)->get();
+
         DB::table('web_users')->insert([
             'name' => $name,
             'vx' => $vx,
