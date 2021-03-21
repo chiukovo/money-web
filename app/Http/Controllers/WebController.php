@@ -29,7 +29,7 @@ class WebController extends Controller
             ]);
         }
 
-        if (preg_match("/^1[34578]\d{9}$/", $phone)) {
+        if (!is_numeric($phone)) {
             return response()->json([
                 'status' => 'error',
                 'msg' => '非正确手机格式'
