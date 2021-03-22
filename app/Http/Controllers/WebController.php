@@ -35,6 +35,13 @@ class WebController extends Controller
             ]);
         }
 
+        if (strlen($phone) != 11) {
+            return response()->json([
+                'status' => 'error',
+                'msg' => '手机号限定11位元'
+            ]);
+        }
+
         if (!is_numeric($phone)) {
             return response()->json([
                 'status' => 'error',
